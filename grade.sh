@@ -35,7 +35,8 @@ then
     #compile java files
 
     # should include different exit codes and the reasoning for user?
-    javac -cp ".;lib/hamcrest-core-1.3.jar;lib/junit-4.13.2.jar" *.java
+    cd grading-area
+    javac -cp ".:../lib/hamcrest-core-1.3.jar:../lib/junit-4.13.2.jar" *.java
 
     if [[ $? -eq 0 ]]
     then
@@ -45,7 +46,7 @@ then
     fi
 
     #run test
-    java -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples
+    java -cp ".:../lib/junit-4.13.2.jar:../lib/hamcrest-core-1.3.jar" org.junit.runner.JUnitCore TestListExamples
 
 else 
     echo "ListExamples.java file does not exist."
